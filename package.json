@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/1000ch/switch-element.git"
   },
+  "scripts": {
+    "start": "python -m http.server"
+  },
   "keywords": [
     "WebComponents"
   ],
