@@ -27,3 +27,5 @@ Put `<switch-element>` tag.
 ## License
 
 MIT
+
+iOS UI Style is borrowed from http://codepen.io/cbp/pen/FLdjI .
