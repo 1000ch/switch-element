@@ -1,0 +1,22 @@
+{
+  "name": "switch-element",
+  "version": "0.1.0",
+  "homepage": "https://github.com/1000ch/switch-element",
+  "authors": [
+    "1000ch <shogo.sensui@gmail.com>"
+  ],
+  "description": "Switch UI Element",
+  "main": "switch-element.html",
+  "keywords": [
+    "WebComponents",
+    "web-components"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

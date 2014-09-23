@@ -1,0 +1,22 @@
+{
+  "name": "switch-element",
+  "version": "0.1.0",
+  "description": "Switch UI Element",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1000ch/switch-element.git"
+  },
+  "keywords": [
+    "WebComponents"
+  ],
+  "author": {
+    "name": "1000ch",
+    "email": "shogo.sensui@gmail.com",
+    "web": "http://github.com/1000ch"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1000ch/switch-element/issues"
+  },
+  "homepage": "https://github.com/1000ch/switch-element"
+}
