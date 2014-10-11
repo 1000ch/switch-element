@@ -117,7 +117,8 @@
 </template>
 <script>
   window.SwitchElement = (function () {
-    var doc = document.currentScript.ownerDocument;
+    var currentScript = document._currentScript || document.currentScript;
+    var doc = currentScript.ownerDocument;
     var SwitchElementPrototype = Object.create(HTMLElement.prototype);
   
     Object.defineProperty(SwitchElementPrototype, 'checked', {
