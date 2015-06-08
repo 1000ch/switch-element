@@ -1,6 +1,6 @@
 {
   "name": "switch-element",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Switch UI Element",
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
     "start": "python -m http.server"
   },
   "keywords": [
-    "WebComponents"
+    "WebComponents",
+    "web-components"
   ],
   "author": {
     "name": "1000ch",
