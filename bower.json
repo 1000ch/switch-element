@@ -1,6 +1,6 @@
 {
   "name": "switch-element",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/1000ch/switch-element",
   "authors": [
     "1000ch <shogo.sensui@gmail.com>"
@@ -17,10 +17,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "index.html"
   ],
   "devDependencies": {
-    "markdown.css": "~0.1.0",
-    "normalize.css": "~3.0.1"
+    "primer-css": "~2.2.1",
+    "primer-markdown": "~2.1.7"
   }
 }

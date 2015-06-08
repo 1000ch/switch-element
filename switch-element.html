@@ -118,51 +118,51 @@
 <script>
   window.SwitchElement = (function () {
     var currentScript = document._currentScript || document.currentScript;
-    var doc = currentScript.ownerDocument;
+    var ownerDocument = currentScript.ownerDocument;
     var SwitchElementPrototype = Object.create(HTMLElement.prototype);
-  
+
     Object.defineProperty(SwitchElementPrototype, 'checked', {
-      get: function () {
+      get function () {
         return this.checkbox.checked;
       },
-      set: function (value) {
+      set function (value) {
         this.checkbox.checked = !!value;
       }
     });
-  
+
     Object.defineProperty(SwitchElementPrototype, 'disabled', {
-      get: function () {
+      get function () {
         return this.checkbox.disabled;
       },
-      set: function (value) {
+      set function (value) {
         this.checkbox.disabled = !!value;
       }
     });
-  
+
     SwitchElementPrototype.createdCallback = function () {
-      var template = doc.querySelector('template');
+      var template = ownerDocument.querySelector('template');
       var clone = document.importNode(template.content, true);
       this.shadowRoot = this.createShadowRoot();
       this.shadowRoot.appendChild(clone);
-  
+
       this.checkbox = this.shadowRoot.querySelector('input[type=checkbox]');
       this.checkbox.checked = this.hasAttribute('checked');
       this.checkbox.disabled = this.hasAttribute('disabled');
     };
-  
+
     SwitchElementPrototype.changeCallback = function (e) {
       var event = new CustomEvent('change', true, true, null, e.detail);
       this.dispatchEvent(event);
     };
-  
+
     SwitchElementPrototype.attachedCallback = function () {
       this.checkbox.addEventListener('change', this.changeCallback.bind(this));
     };
-  
+
     SwitchElementPrototype.detachedCallback = function () {
       this.checkbox.removeEventListener('change', this.changeCallback.bind(this));
     };
-  
+
     return document.registerElement('switch-element', {
       prototype: SwitchElementPrototype
     });
