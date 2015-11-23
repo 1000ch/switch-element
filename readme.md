@@ -6,13 +6,13 @@ Switch UI Element like iOS.
 
 ## Usage
 
-Install with **npm** .
+Install via **npm** .
 
 ```bash
 $ npm install switch-element
 ```
 
-Or from **bower** .
+Or via **bower** .
 
 ```bash
 $ bower install switch-element
