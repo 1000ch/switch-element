@@ -19,9 +19,5 @@
     "test",
     "tests",
     "index.html"
-  ],
-  "devDependencies": {
-    "primer-css": "~2.2.1",
-    "primer-markdown": "~2.1.7"
-  }
+  ]
 }
