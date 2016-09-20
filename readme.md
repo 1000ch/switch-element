@@ -1,21 +1,25 @@
 # [switch-element](http://1000ch.github.io/switch-element)
 
-## About
-
 Switch UI Element like iOS.
+
+## Install
+
+Install via **npm** or **bower**.
+
+```bash
+# via npm
+$ npm install switch-element
+
+# via bower
+$ bower install switch-element
+```
 
 ## Usage
 
-Install via **npm** .
+Import `switch-element.html`.
 
-```bash
-$ npm install switch-element
-```
-
-Or via **bower** .
-
-```bash
-$ bower install switch-element
+```html
+<link rel="import" href="switch-element.html">
 ```
 
 Put `<switch-element>` tag.
@@ -27,5 +31,3 @@ Put `<switch-element>` tag.
 ## License
 
 MIT
-
-iOS UI Style is borrowed from http://codepen.io/cbp/pen/FLdjI .
