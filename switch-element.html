@@ -136,6 +136,8 @@ customElements.define('switch-element', class SwitchElement extends HTMLElement 
   constructor() {
     super();
 
+    this.changedCallback = this.changedCallback.bind(this);
+
     const ownerDocument = document.currentScript.ownerDocument;
     const template = ownerDocument.querySelector('template');
     const clone = template.content.cloneNode(true);
@@ -148,11 +150,11 @@ customElements.define('switch-element', class SwitchElement extends HTMLElement 
   }
 
   connectedCallback() {
-    this.checkbox.addEventListener('change', this.changedCallback.bind(this));
+    this.checkbox.addEventListener('change', this.changedCallback);
   }
 
   disconnectedCallback() {
-    this.checkbox.removeEventListener('change', this.changedCallback.bind(this));
+    this.checkbox.removeEventListener('change', this.changedCallback);
   }
 
   changedCallback(e) {
