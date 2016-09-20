@@ -116,56 +116,51 @@
   <input type="checkbox">
 </template>
 <script>
-  window.SwitchElement = (function () {
-    var currentScript = document._currentScript || document.currentScript;
-    var ownerDocument = currentScript.ownerDocument;
-    var SwitchElementPrototype = Object.create(HTMLElement.prototype);
+customElements.define('switch-element', class SwitchElement extends HTMLElement {
+  get checked() {
+    return this.checkbox.checked;
+  }
 
-    Object.defineProperty(SwitchElementPrototype, 'checked', {
-      get function () {
-        return this.checkbox.checked;
-      },
-      set function (value) {
-        this.checkbox.checked = !!value;
-      }
-    });
+  set checked(value) {
+    this.checkbox.checked = !!value;
+  }
 
-    Object.defineProperty(SwitchElementPrototype, 'disabled', {
-      get function () {
-        return this.checkbox.disabled;
-      },
-      set function (value) {
-        this.checkbox.disabled = !!value;
-      }
-    });
+  get disabled() {
+    return this.checkbox.disabled;
+  }
 
-    SwitchElementPrototype.createdCallback = function () {
-      var template = ownerDocument.querySelector('template');
-      var clone = document.importNode(template.content, true);
-      this.shadowRoot = this.createShadowRoot();
-      this.shadowRoot.appendChild(clone);
+  set disabled(value) {
+    this.checkbox.disabled = !!value;
+  }
 
-      this.checkbox = this.shadowRoot.querySelector('input[type=checkbox]');
-      this.checkbox.checked = this.hasAttribute('checked');
-      this.checkbox.disabled = this.hasAttribute('disabled');
-    };
+  constructor() {
+    super();
 
-    SwitchElementPrototype.changeCallback = function (e) {
-      var event = new CustomEvent('change');
-      event.detail = e.detail;
-      this.dispatchEvent(event);
-    };
+    this.changedCallback = this.changedCallback.bind(this);
 
-    SwitchElementPrototype.attachedCallback = function () {
-      this.checkbox.addEventListener('change', this.changeCallback.bind(this));
-    };
+    const ownerDocument = document.currentScript.ownerDocument;
+    const template = ownerDocument.querySelector('template');
+    const clone = template.content.cloneNode(true);
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(clone);
 
-    SwitchElementPrototype.detachedCallback = function () {
-      this.checkbox.removeEventListener('change', this.changeCallback.bind(this));
-    };
+    this.checkbox = this.shadowRoot.querySelector('input[type=checkbox]');
+    this.checkbox.checked = this.hasAttribute('checked');
+    this.checkbox.disabled = this.hasAttribute('disabled');
+  }
 
-    return document.registerElement('switch-element', {
-      prototype: SwitchElementPrototype
-    });
-  })();
+  connectedCallback() {
+    this.checkbox.addEventListener('change', this.changedCallback);
+  }
+
+  disconnectedCallback() {
+    this.checkbox.removeEventListener('change', this.changedCallback);
+  }
+
+  changedCallback(e) {
+    const event = new CustomEvent('change');
+    event.detail = e.detail;
+    this.dispatchEvent(event);
+  }
+});
 </script>
